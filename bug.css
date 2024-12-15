@@ -1,0 +1,22 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance.  The unexpected outcome arises from the way CSS handles specificity and how styles are inherited.
+
+```css
+.container {
+  font-size: 16px;
+}
+
+.container p {
+  color: blue;
+}
+
+p {
+  font-size: 14px; /* This rule is unexpectedly overridden */
+}
+
+.container span {
+  font-size: 18px; 
+  color: green; /* This style will override the parent p color */
+}
+```
+
+In this example, the `<p>` element inside `.container` inherits the `font-size: 16px` from its parent. However, the more specific selector `.container p` does not override the inheritance.  The `color: blue` however correctly applies. The `font-size: 14px` selector is less specific than `.container p`, causing a surprising result: the `font-size` remains 16px, not 14px.   The `span` inside the `p` inherits the parent `p`'s `font-size`, but the inline `color: green` overrides `color:blue`.
