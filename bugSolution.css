@@ -1,0 +1,22 @@
+The solution lies in understanding and adjusting CSS specificity.  To ensure the `font-size: 14px` rule applies to paragraphs within the `.container`, we need to make it more specific than the inherited `font-size: 16px`. The solution includes clarifying inheritance and specificity issues:
+
+```css
+.container {
+  font-size: 16px;
+}
+
+.container p {
+  color: blue;
+  font-size: 14px; /* Now correctly overrides inherited font-size */
+}
+
+p {
+  font-size: 14px;
+}
+
+.container span {
+  font-size: 18px;
+  color: green; /* This style will override the parent p color */
+}
+```
+By directly setting `font-size: 14px` on `.container p`, we give it higher specificity than the inherited style, resolving the unexpected behavior.
